@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('phone',50);
             $table->rememberToken();
-            $table->enum('status',['on','off']);
+            $table->enum('status',['on','off'])->index();
             $table->timestamp('crated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('"0000-00-00 00:00:00" on update CURRENT_TIMESTAMP'));
             $table->string('author',50);
