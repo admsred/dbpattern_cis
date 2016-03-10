@@ -16,6 +16,7 @@ class CreatePatientsTable extends Migration
             $table->string('id',25)->primary();
             $table->string('name',100);
             $table->enum('sex',['L','P']);
+            $table->text('allergy');
             $table->date('birthday');
             $table->string('phone',50);
             $table->text('address');
@@ -32,6 +33,7 @@ class CreatePatientsTable extends Migration
             $table->string('city_id',4);
             $table->string('district_id',7);
             $table->string('sdistrict_id',10);
+            $table->integer('religion_id')->unsigned();
         });
     }
 
