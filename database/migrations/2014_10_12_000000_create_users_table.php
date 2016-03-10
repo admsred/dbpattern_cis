@@ -15,13 +15,13 @@ class CreateUsersTable extends Migration
         Schema::create('sys_users', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('fullname',100);
-            $table->string('uname',50)->unique();
+            $table->string('username',50)->unique();
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('phone',50);
             $table->rememberToken();
             $table->enum('status',['on','off'])->index();
-            $table->timestamp('crated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('"0000-00-00 00:00:00" on update CURRENT_TIMESTAMP'));
             $table->string('author',50);
             $table->integer('role_id')->unsigned();

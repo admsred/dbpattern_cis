@@ -22,7 +22,7 @@ class CreateProfileTable extends Migration
             $table->string('email',150);
             $table->text('address');
             $table->string('logo');
-            $table->timestamp('crated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('"0000-00-00 00:00:00" on update CURRENT_TIMESTAMP'));
             $table->string('author',50);
         });

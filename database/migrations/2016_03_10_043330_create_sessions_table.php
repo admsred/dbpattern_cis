@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLogTable extends Migration
+class CreateSessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('sys_logs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('username',50)->index();
-            $table->string('ip_address',50)->index();
-            $table->string('user_agent',125);
-            $table->text('description');
+        Schema::create('sys_sessions', function (Blueprint $table) {
+            $table->string('id',40);
+            $table->string('ip_address',50);
+            $table->string('user_agent',120);
+            $table->integer('last_activity')->unsigned();
+            $table->text('user_data');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
@@ -29,6 +29,6 @@ class CreateLogTable extends Migration
      */
     public function down()
     {
-        Schema::drop('sys_logs');
+        Schema::drop('sys_sessions');
     }
 }
